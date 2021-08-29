@@ -1,7 +1,7 @@
-defmodule ElixirLab.Lab.Application.RunExperimentTest do
+defmodule ElixirLab.Lab.UseCase.RunExperimentTest do
   use ExUnit.Case, async: true
   alias ElixirLab.Lab.Domain.Model.{Alchemist, Equipment, Experiment}
-  alias ElixirLab.Lab.Application.RunExperiment
+  alias ElixirLab.Lab.UseCase.RunExperiment
   alias ElixirLab.Lab.MockExperimentRepo
 
   import Mox

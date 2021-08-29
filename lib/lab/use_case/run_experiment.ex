@@ -1,4 +1,4 @@
-defmodule ElixirLab.Lab.Application.RunExperiment do
+defmodule ElixirLab.Lab.UseCase.RunExperiment do
   alias ElixirLab.Lab.Domain.Model.Experiment
   alias ElixirLab.Lab.Domain.Service.ExperimentService
 
