@@ -1,5 +1,5 @@
-defmodule ElixirLab.Lab.Adapter.CLI do
-  alias ElixirLab.Lab.UseCase.RunExperiment
+defmodule ElixirLab.Adapter.CLI do
+  alias ElixirLab.UseCase.RunExperiment
 
   @experiment_repo Application.compile_env!(:elixir_lab, :experiment_repo)
 

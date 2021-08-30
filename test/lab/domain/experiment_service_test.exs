@@ -1,7 +1,7 @@
-defmodule ElixirLab.Lab.Domain.ExperimentServiceTest do
+defmodule ElixirLab.Domain.ExperimentServiceTest do
   use ExUnit.Case, async: true
-  alias ElixirLab.Lab.Domain.Model.{Alchemist, Equipment, Experiment}
-  alias ElixirLab.Lab.Domain.Service.ExperimentService
+  alias ElixirLab.Domain.Model.{Alchemist, Equipment, Experiment}
+  alias ElixirLab.Domain.Service.ExperimentService
 
   describe "run_experiment/1" do
     test "return failed experiment when alchemist is an apprentice" do

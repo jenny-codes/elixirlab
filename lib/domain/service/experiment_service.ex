@@ -1,5 +1,5 @@
-defmodule ElixirLab.Lab.Domain.Service.ExperimentService do
-  alias ElixirLab.Lab.Domain.Model.{Alchemist, Equipment, Experiment}
+defmodule ElixirLab.Domain.Service.ExperimentService do
+  alias ElixirLab.Domain.Model.{Alchemist, Equipment, Experiment}
 
   @callback run_experiment(Experiment.t()) :: Experiment.t()
 

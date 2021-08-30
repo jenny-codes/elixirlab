@@ -1,9 +1,9 @@
-defmodule ElixirLab.Lab.Adapter.ExperimentRepo do
-  alias ElixirLab.Lab.Domain.Model
-  alias ElixirLab.Lab.Domain.Repo.ExperimentRepo
+defmodule ElixirLab.Adapter.ExperimentRepo do
+  alias ElixirLab.Domain.Model
+  alias ElixirLab.Domain.Repo.ExperimentRepo
 
   alias ElixirLab.Repo
-  alias ElixirLab.Lab.Adapter.Schema
+  alias ElixirLab.Adapter.Schema
   import Ecto.Query, warn: false
 
   @behaviour ExperimentRepo

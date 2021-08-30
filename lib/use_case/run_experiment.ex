@@ -1,6 +1,6 @@
-defmodule ElixirLab.Lab.UseCase.RunExperiment do
-  alias ElixirLab.Lab.Domain.Model.Experiment
-  alias ElixirLab.Lab.Domain.Service.ExperimentService
+defmodule ElixirLab.UseCase.RunExperiment do
+  alias ElixirLab.Domain.Model.Experiment
+  alias ElixirLab.Domain.Service.ExperimentService
 
   def call(alchemist_id, materials, experiment_repo) do
     alchemist = experiment_repo.get_alchemist(alchemist_id)

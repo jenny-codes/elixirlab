@@ -1,5 +1,5 @@
-defmodule ElixirLab.Lab.Domain.Model.Experiment do
-  alias ElixirLab.Lab.Domain.Model.{Alchemist, Equipment}
+defmodule ElixirLab.Domain.Model.Experiment do
+  alias ElixirLab.Domain.Model.{Alchemist, Equipment}
   @enforce_keys [:alchemist, :equipment, :materials]
   defstruct [:id, :alchemist, :equipment, :materials, :result]
 

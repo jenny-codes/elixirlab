@@ -1,6 +1,6 @@
-defmodule ElixirLab.Lab.Adapter.Schema.Equipment do
+defmodule ElixirLab.Adapter.Schema.Equipment do
   use Ecto.Schema
-  alias ElixirLab.Lab.Domain.Model.Equipment
+  alias ElixirLab.Domain.Model.Equipment
 
   schema "equipments" do
     field(:name, :string)

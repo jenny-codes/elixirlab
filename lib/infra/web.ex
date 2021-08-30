@@ -30,7 +30,7 @@ defmodule ElixirLab.Web do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/lab/adapter/web/templates",
+        root: "lib/adapter/web/templates",
         namespace: ElixirLab.Web
 
       # Import convenience functions from controllers

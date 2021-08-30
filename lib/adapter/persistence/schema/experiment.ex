@@ -1,4 +1,4 @@
-defmodule ElixirLab.Lab.Adapter.Schema.Experiment do
+defmodule ElixirLab.Adapter.Schema.Experiment do
   use Ecto.Schema
 
   schema "experiments" do

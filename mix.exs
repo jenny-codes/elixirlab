@@ -47,7 +47,7 @@ defmodule ElixirLab.MixProject do
   end
 
   defp escript() do
-    [main_module: ElixirLab.Lab.Adapter.CLI]
+    [main_module: ElixirLab.Adapter.CLI]
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]

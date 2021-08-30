@@ -1,4 +1,4 @@
-defmodule ElixirLab.Lab.Domain.Model.Alchemist do
+defmodule ElixirLab.Domain.Model.Alchemist do
   @enforce_keys [:name, :level]
   defstruct [:id, :name, :level]
   @level_apprentice :apprentice

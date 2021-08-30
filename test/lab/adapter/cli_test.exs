@@ -1,8 +1,8 @@
-defmodule ElixirLab.Lab.Adapter.CLITest do
+defmodule ElixirLab.Adapter.CLITest do
   use ExUnit.Case, async: true
-  alias ElixirLab.Lab.Domain.Model.{Alchemist, Equipment}
-  alias ElixirLab.Lab.MockExperimentRepo
-  alias ElixirLab.Lab.Adapter.CLI
+  alias ElixirLab.Domain.Model.{Alchemist, Equipment}
+  alias ElixirLab.MockExperimentRepo
+  alias ElixirLab.Adapter.CLI
 
   import ExUnit.CaptureIO
   import Mox

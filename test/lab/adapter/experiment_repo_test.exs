@@ -1,8 +1,8 @@
-defmodule ElixirLab.Lab.Adapter.ExperimentRepoTest do
+defmodule ElixirLab.Adapter.ExperimentRepoTest do
   use ElixirLab.RepoCase, async: true
-  alias ElixirLab.Lab.Domain.Model
-  alias ElixirLab.Lab.Adapter.ExperimentRepo
-  alias ElixirLab.Lab.Adapter.Schema
+  alias ElixirLab.Domain.Model
+  alias ElixirLab.Adapter.ExperimentRepo
+  alias ElixirLab.Adapter.Schema
 
   describe "get_alchemist/1" do
     test "get a alchemist record by id and translate to alchemist model" do

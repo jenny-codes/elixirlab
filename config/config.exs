@@ -10,7 +10,7 @@ config :elixir_lab, ElixirLab.Repo,
   hostname: "localhost"
 
 config :elixir_lab, ecto_repos: [ElixirLab.Repo]
-config :elixir_lab, experiment_repo: ElixirLab.Lab.Adapter.EexperimentRepo
+config :elixir_lab, experiment_repo: ElixirLab.Adapter.EexperimentRepo
 
 # ------------------------------------------
 # Web layer

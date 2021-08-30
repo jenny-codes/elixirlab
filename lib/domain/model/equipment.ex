@@ -1,4 +1,4 @@
-defmodule ElixirLab.Lab.Domain.Model.Equipment do
+defmodule ElixirLab.Domain.Model.Equipment do
   @enforce_keys [:use_condition]
   defstruct [:id, :name, :use_condition]
 
