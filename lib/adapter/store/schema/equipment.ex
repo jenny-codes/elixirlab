@@ -1,4 +1,4 @@
-defmodule ElixirLab.Adapter.Schema.Equipment do
+defmodule ElixirLab.Adapter.Store.Schema.Equipment do
   use Ecto.Schema
   alias ElixirLab.Domain.Model.Equipment
 

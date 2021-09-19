@@ -1,6 +1,6 @@
 defmodule ElixirLab.Adapter.CLITest do
   use ExUnit.Case, async: true
-  alias ElixirLab.Domain.Model.{Alchemist, Equipment}
+  alias ElixirLab.Domain.Model.{Alchemist, Equipment, ExperimentCondition}
   alias ElixirLab.MockExperimentRepo
   alias ElixirLab.Adapter.CLI
 
@@ -12,7 +12,13 @@ defmodule ElixirLab.Adapter.CLITest do
 
     result =
       capture_io(fn ->
-        CLI.main(["submit", "--aid", "1", "--materials", "egg,phoenix ash,gum"])
+        CLI.main([
+          "submit",
+          "--aid",
+          "1",
+          "--materials",
+          "#{ExperimentCondition.key_material()},whatever"
+        ])
       end)
 
     assert result == "elixir\n"
@@ -20,11 +26,11 @@ defmodule ElixirLab.Adapter.CLITest do
 
   defp prepare_experiment_repo() do
     MockExperimentRepo
-    |> expect(:get_alchemist, fn id ->
-      %Alchemist{id: id, name: "hi", level: Alchemist.level_master()}
+    |> expect(:get_alchemist, fn _id ->
+      Alchemist.new(name: "hi", level: Alchemist.level_master())
     end)
     |> expect(:random_get_equipment, fn ->
-      %Equipment{name: "Cardbaord box", use_condition: Equipment.condition_brand_new()}
+      Equipment.new(name: "Cardbaord box", use_condition: Equipment.condition_brand_new())
     end)
     |> expect(:save_experiment, fn exp -> {:ok, exp} end)
   end

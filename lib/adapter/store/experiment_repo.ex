@@ -1,16 +1,16 @@
-defmodule ElixirLab.Adapter.ExperimentRepo do
+defmodule ElixirLab.Adapter.Store.ExperimentRepo do
   alias ElixirLab.Domain.Model
-  alias ElixirLab.Domain.Repo.ExperimentRepo
+  alias ElixirLab.Domain.Store.ExperimentRepo
 
   alias ElixirLab.Repo
-  alias ElixirLab.Adapter.Schema
   import Ecto.Query, warn: false
+  alias ElixirLab.Adapter.Store.Schema
 
   @behaviour ExperimentRepo
 
   @impl ExperimentRepo
   def get_alchemist(id) do
-    record = Repo.get(Schema.Alchemist, id)
+    record = Repo.get(Schema.User, id)
     Model.Alchemist.new(name: record.name, level: record.level)
   end
 
@@ -24,14 +24,14 @@ defmodule ElixirLab.Adapter.ExperimentRepo do
   @impl ExperimentRepo
   def save_experiment(exp) do
     exp_schema = %Schema.Experiment{
-      alchemist_id: exp.alchemist.id,
-      equipment_id: exp.equipment.id,
-      materials: Enum.join(exp.materials, ","),
+      user_id: exp.condition.alchemist.id,
+      equipment_id: exp.condition.equipment.id,
+      materials: Enum.join(exp.condition.materials, ","),
       result: Atom.to_string(exp.result)
     }
 
-    {:ok, record} = Repo.insert(exp_schema, on_conflict: :replace_all, conflict_target: :id)
+    {:ok, _} = Repo.insert(exp_schema, on_conflict: :replace_all, conflict_target: :id)
 
-    Map.put(exp, :id, record.id)
+    exp
   end
 end

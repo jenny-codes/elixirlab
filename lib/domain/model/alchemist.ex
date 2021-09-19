@@ -1,6 +1,6 @@
 defmodule ElixirLab.Domain.Model.Alchemist do
   @enforce_keys [:name, :level]
-  defstruct [:id, :name, :level]
+  defstruct [:name, :level]
   @level_apprentice :apprentice
   @level_master :master
 

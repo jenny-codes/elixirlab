@@ -1,8 +1,8 @@
-defmodule ElixirLab.Adapter.ExperimentRepoTest do
+defmodule ElixirLab.Adapter.Store.ExperimentRepoTest do
   use ElixirLab.RepoCase, async: true
   alias ElixirLab.Domain.Model
-  alias ElixirLab.Adapter.ExperimentRepo
-  alias ElixirLab.Adapter.Schema
+  alias ElixirLab.Adapter.Store.ExperimentRepo
+  alias ElixirLab.Adapter.Store.Schema
 
   describe "get_alchemist/1" do
     test "get a alchemist record by id and translate to alchemist model" do
@@ -30,25 +30,26 @@ defmodule ElixirLab.Adapter.ExperimentRepoTest do
 
   describe "save_experiment/1" do
     test "saves an experiment from model" do
-      alchemist = create_alchemist_record()
-      equipment = create_equipment_record()
+      exp_model =
+        Model.ExperimentResult.new(
+          condition:
+            Model.ExperimentCondition.new(
+              alchemist: create_alchemist_record(),
+              equipment: create_equipment_record(),
+              materials: ["whatever"]
+            ),
+          result: Model.ExperimentResult.result_successful()
+        )
 
-      exp_model = %Model.Experiment{
-        alchemist: alchemist,
-        equipment: equipment,
-        materials: ["egg", "mask", "ruby"],
-        result: :successful
-      }
+      ExperimentRepo.save_experiment(exp_model)
 
-      result = ExperimentRepo.save_experiment(exp_model)
-
-      assert Repo.get(Schema.Experiment, result.id)
+      assert Repo.exists?(Schema.Experiment)
     end
   end
 
   defp create_alchemist_record do
     {:ok, record} =
-      Repo.insert(%Schema.Alchemist{
+      Repo.insert(%Schema.User{
         name: "Alchemist name",
         level: Model.Alchemist.level_apprentice()
       })

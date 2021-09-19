@@ -1,6 +1,6 @@
 defmodule ElixirLab.Domain.Model.Equipment do
   @enforce_keys [:use_condition]
-  defstruct [:id, :name, :use_condition]
+  defstruct [:name, :use_condition]
 
   @condition_worn_out :wornout
   @condition_brand_new :brand_new

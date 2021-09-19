@@ -1,8 +1,8 @@
-defmodule ElixirLab.Repo.Migrations.CreateAlchemists do
+defmodule ElixirLab.Repo.Migrations.CreateUsers do
   use Ecto.Migration
 
   def change do
-    create table(:alchemists) do
+    create table(:users) do
       add :name, :string
       add :level, :integer
     end

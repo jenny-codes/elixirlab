@@ -1,8 +1,8 @@
-defmodule ElixirLab.Adapter.Schema.Alchemist do
+defmodule ElixirLab.Adapter.Store.Schema.User do
   use Ecto.Schema
   alias ElixirLab.Domain.Model.Alchemist
 
-  schema "alchemists" do
+  schema "users" do
     field(:name, :string)
 
     field(

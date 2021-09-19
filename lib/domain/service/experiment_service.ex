@@ -1,20 +1,18 @@
 defmodule ElixirLab.Domain.Service.ExperimentService do
-  alias ElixirLab.Domain.Model.{Alchemist, Equipment, Experiment}
+  alias ElixirLab.Domain.Model.{Alchemist, Equipment, ExperimentCondition, ExperimentResult}
 
-  @callback run_experiment(Experiment.t()) :: Experiment.t()
-
-  @spec run_experiment(Experiment.t()) :: Experiment.t()
-  def run_experiment(experiment) do
+  @spec produce_result(ExperimentCondition.t()) :: ExperimentResult.t()
+  def produce_result(condition) do
     result =
-      with true <- is_valid_alchemist(experiment.alchemist),
-           true <- is_valid_equipment(experiment.equipment),
-           true <- Experiment.has_key_material(experiment) do
-        :successful
+      with true <- is_valid_alchemist(condition.alchemist),
+           true <- is_valid_equipment(condition.equipment),
+           true <- ExperimentCondition.has_key_material(condition) do
+        ExperimentResult.result_successful()
       else
-        _ -> :failed
+        _ -> ExperimentResult.result_failed()
       end
 
-    Map.put(experiment, :result, result)
+    ExperimentResult.new(condition: condition, result: result)
   end
 
   defp is_valid_alchemist(%Alchemist{} = alchemist) do
